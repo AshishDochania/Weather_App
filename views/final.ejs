@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather App</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
+  </head>
+  <body>
+    <script src="./app.js"></script>
+
+    <div >
+    <h1>The Weather of <span><%= namecity %> -> </span><%= wd %>.</h1>
+    <h2>Temperature is <%= felltemp %>.</h2>
+    <h2>Feels like <%= feel %>.</h2>
+    <h2>Humidity percentage in your area is <%= hum %>%.</h2>
+    <img src="<%= imagee %>" alt="Weather Image">
+    </div>
+
+
+    <!-- background-repeat: no-repeat;
+        background-size: 100% 100%; -->
+
+    <script>
+      var main = '<%= m %>';
+      var lin1 = "url('img/image.jpg')";
+
+      // Check if the image exists
+      var img = new Image();
+      img.src = "../img/image.jpg";
+      img.onload = function () {
+        if (main === 'Thunderstorm') {
+          document.querySelector('body').style.backgroundImage = "url('img/ligh.jpg')";
+          document.querySelector('body').style.backgroundRepeat="no-repeat";
+          document.querySelector('body').style.backgroundSize="100vw 100vh";
+          document.querySelector('div').style.color="purple";
+
+
+        } else if (main === 'Drizzle') {
+          document.querySelector('body').style.backgroundImage = "url('img/rain.jpg')";
+          document.querySelector('body').style.backgroundRepeat="no-repeat";
+          document.querySelector('body').style.backgroundSize="100vw 100vh";
+          document.querySelector('div').style.color="white";
+
+        } else if (main === 'Rain') {
+          document.querySelector('body').style.backgroundImage = "url('img/rain.jpg')";
+          document.querySelector('body').style.backgroundRepeat="no-repeat";
+          document.querySelector('body').style.backgroundSize="100vw 100vh";
+          document.querySelector('div').style.color="white";
+
+        } else if (main === 'Snow') {
+          document.querySelector('body').style.backgroundImage = "url('img/snow.jpg')";
+          document.querySelector('body').style.backgroundRepeat="no-repeat";
+          document.querySelector('body').style.backgroundSize="100vw 100vh";
+          document.querySelector('div').style.color="white";
+
+        } else if (main === 'Clear') {
+          document.querySelector('body').style.backgroundImage = "url('img/clear.jpg')";
+          document.querySelector('body').style.backgroundRepeat="no-repeat";
+          document.querySelector('body').style.backgroundSize="100vw 100vh";
+          document.querySelector('div').style.color="white";
+          
+        } else if (main === 'Clouds') {
+          document.querySelector('body').style.backgroundImage = "url('img/clody.jpg')";
+          document.querySelector('body').style.backgroundRepeat="no-repeat";
+          document.querySelector('body').style.backgroundSize="100vw 100vh";
+          document.querySelector('div').style.color="white";
+
+        }else{
+          // Mist or default
+          document.querySelector('body').style.backgroundImage = "url('img/desktop-1920x1080 (1).jpg')";
+          document.querySelector('body').style.backgroundRepeat="no-repeat";
+          document.querySelector('body').style.backgroundSize="100vw 100vh";
+          document.querySelector('div').style.color="white";
+        }
+      };
+      img.onerror = function () {
+        // Image not found, set a default background
+        document.querySelector('body').style.backgroundColor = '#EFD09E';
+      };
+    </script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
+  </body>
+</html>
